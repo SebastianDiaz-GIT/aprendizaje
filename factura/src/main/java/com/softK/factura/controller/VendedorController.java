@@ -20,6 +20,8 @@ public class VendedorController {
     private VendedorFacadeInterface vendedorFacadeInterface;
 
     @PostMapping("/save")
+    @ApiOperation("Guardado del vendedor de la BD")
+
     public ResponseEntity<Message> save(@RequestBody VendedorDTO vendedorDTO) throws ControllerException {
         Message message = new Message("0", "Save Successful", null);
         try{
@@ -52,6 +54,7 @@ public class VendedorController {
 
 
     @GetMapping("/getall")
+    @ApiOperation("Obtener todos los vendedores")
     public ResponseEntity<Message> getall() throws ControllerException{
         Message message = new Message("0", "Save successful", null);
         try{

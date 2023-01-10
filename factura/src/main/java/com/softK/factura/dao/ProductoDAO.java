@@ -94,7 +94,7 @@ public class ProductoDAO implements ProductDaoInterface{
     @Override
     public List getbyname(ProductoDTO producto) throws DaoExceptions {
 
-        String SELECT = "select sku, dsproducto from producto where dsproducto like %" + producto.getDsProducto() + "%";
+        String SELECT = "select sku, dsproducto from producto where dsproducto like " + producto.getDsProducto();
         try{
             return jdbcTemplate.query(SELECT, new ProductoMapper());
         }catch (EmptyResultDataAccessException ex)

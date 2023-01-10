@@ -5,6 +5,7 @@ import com.softK.factura.exception.ControllerException;
 import com.softK.factura.exception.FacadeException;
 import com.softK.factura.facade.PrecioFacadeInterface;
 import com.softK.factura.message.Message;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ public class PrecioController {
     private PrecioFacadeInterface precioFacadeInterface;
 
     @PostMapping("/crear-precio")
+    @ApiOperation("Crear precios")
     public ResponseEntity<Message> crearPrecio(@RequestBody  PrecioDTO precioDTO) throws ControllerException {
         Message message = new Message("0", "Successful Create", null);
         try {
@@ -32,6 +34,7 @@ public class PrecioController {
 
 
     @PostMapping("/delete-precio")
+    @ApiOperation("borrar precio")
     public ResponseEntity<Message> delete(@RequestBody  PrecioDTO precioDTO) throws ControllerException {
         Message message = new Message("0", "Successful delete", null);
         try {
@@ -43,6 +46,7 @@ public class PrecioController {
     }
 
     @GetMapping("/getall-precio")
+    @ApiOperation("Obtener todos los precios")
     public ResponseEntity<Message> getall() throws ControllerException {
         Message message = new Message("0", "Successful get all found", null);
         try {
